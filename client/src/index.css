@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand Colors */
+  --color-forsythia: #FFC801;
+  --color-nocturnal: #114C5A;
+  --color-saffron: #FF9932;
+  --color-oceanic: #172B36;
+  --color-powder: #F1F6F4;
+  --color-mint: #D9E8E2;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Root = dark theme by default (Neural Deep Ocean) */
+:root {
+  --radius: 0.75rem;
+  --background: #172B36;
+  --foreground: #F1F6F4;
+  --card: #114C5A;
+  --card-foreground: #F1F6F4;
+  --popover: #1a3340;
+  --popover-foreground: #F1F6F4;
+  --primary: #FFC801;
+  --primary-foreground: #172B36;
+  --secondary: #1a3340;
+  --secondary-foreground: #D9E8E2;
+  --muted: rgba(217, 232, 226, 0.1);
+  --muted-foreground: #D9E8E2;
+  --accent: rgba(255, 200, 1, 0.1);
+  --accent-foreground: #FFC801;
+  --destructive: #ef4444;
+  --destructive-foreground: #F1F6F4;
+  --border: rgba(217, 232, 226, 0.15);
+  --input: rgba(217, 232, 226, 0.15);
+  --ring: #FFC801;
+  --chart-1: #FFC801;
+  --chart-2: #FF9932;
+  --chart-3: #114C5A;
+  --chart-4: #D9E8E2;
+  --chart-5: #F1F6F4;
+  --sidebar: #114C5A;
+  --sidebar-foreground: #F1F6F4;
+  --sidebar-primary: #FFC801;
+  --sidebar-primary-foreground: #172B36;
+  --sidebar-accent: rgba(255, 200, 1, 0.1);
+  --sidebar-accent-foreground: #FFC801;
+  --sidebar-border: rgba(217, 232, 226, 0.15);
+  --sidebar-ring: #FFC801;
+}
+
+.dark {
+  --radius: 0.75rem;
+  --background: #172B36;
+  --foreground: #F1F6F4;
+  --card: #114C5A;
+  --card-foreground: #F1F6F4;
+  --popover: #1a3340;
+  --popover-foreground: #F1F6F4;
+  --primary: #FFC801;
+  --primary-foreground: #172B36;
+  --secondary: #1a3340;
+  --secondary-foreground: #D9E8E2;
+  --muted: rgba(217, 232, 226, 0.1);
+  --muted-foreground: #D9E8E2;
+  --accent: rgba(255, 200, 1, 0.1);
+  --accent-foreground: #FFC801;
+  --destructive: #ef4444;
+  --destructive-foreground: #F1F6F4;
+  --border: rgba(217, 232, 226, 0.15);
+  --input: rgba(217, 232, 226, 0.15);
+  --ring: #FFC801;
+  --chart-1: #FFC801;
+  --chart-2: #FF9932;
+  --chart-3: #114C5A;
+  --chart-4: #D9E8E2;
+  --chart-5: #F1F6F4;
+  --sidebar: #114C5A;
+  --sidebar-foreground: #F1F6F4;
+  --sidebar-primary: #FFC801;
+  --sidebar-primary-foreground: #172B36;
+  --sidebar-accent: rgba(255, 200, 1, 0.1);
+  --sidebar-accent-foreground: #FFC801;
+  --sidebar-border: rgba(217, 232, 226, 0.15);
+  --sidebar-ring: #FFC801;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* Custom animation utilities */
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+  }
+
+  .animate-pulse-dot {
+    animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.35s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 50ms; }
+  .stagger-2 { animation-delay: 100ms; }
+  .stagger-3 { animation-delay: 150ms; }
+  .stagger-4 { animation-delay: 200ms; }
+  .stagger-5 { animation-delay: 250ms; }
+  .stagger-6 { animation-delay: 300ms; }
+  .stagger-7 { animation-delay: 350ms; }
+  .stagger-8 { animation-delay: 400ms; }
+}
